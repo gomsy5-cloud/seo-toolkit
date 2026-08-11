@@ -1,0 +1,9 @@
+[build]
+command = "npm run build"
+functions = "netlify/functions"
+publish = "dist"
+
+[[redirects]]
+from = "/.netlify/functions/:name"
+to = "/.netlify/functions/:name"
+status = 200
