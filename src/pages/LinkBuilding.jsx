@@ -42,7 +42,7 @@ function OpportunityFinder() {
     if (!niche.trim()) return
     setLoading(true); setError(null); setData(null)
     try {
-      const res = await fetch(`/api/find-opportunities?niche=${encodeURIComponent(niche.trim())}&type=${type}`)
+      const res = await fetch(`/.netlify/functions/find-opportunities?niche=${encodeURIComponent(niche.trim())}&type=${type}`)
       const json = await res.json()
       if (!res.ok) throw new Error(json.error || 'Something went wrong')
       setData(json)
@@ -121,7 +121,7 @@ function OutreachDrafter() {
     if (!details.trim()) return
     setLoading(true); setError(null); setResult(null)
     try {
-      const res = await fetch('/api/generate', {
+      const res = await fetch('/.netlify/functions/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: details.trim(), mode: 'outreach' }),

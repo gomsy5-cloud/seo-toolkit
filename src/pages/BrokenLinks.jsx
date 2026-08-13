@@ -14,7 +14,7 @@ export default function BrokenLinks() {
     setError(null)
     setResult(null)
     try {
-      const res = await fetch(`/api/check-links?url=${encodeURIComponent(url.trim())}`)
+      const res = await fetch(`/.netlify/functions/check-links?url=${encodeURIComponent(url.trim())}`)
       const data = await res.json()
       if (!res.ok) throw new Error(data.error || 'Something went wrong')
       setResult(data)

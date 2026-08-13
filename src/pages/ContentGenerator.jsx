@@ -14,7 +14,7 @@ export default function ContentGenerator() {
     setError(null)
     setResult(null)
     try {
-      const res = await fetch('/api/generate', {
+      const res = await fetch('/.netlify/functions/generate', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ topic: topic.trim(), mode }),

@@ -127,7 +127,7 @@ export default function ReportGenerator() {
     setError(null)
     setData(null)
     try {
-      const res = await fetch(`/api/analyze?url=${encodeURIComponent(url.trim())}`)
+      const res = await fetch(`/.netlify/functions/analyze?url=${encodeURIComponent(url.trim())}`)
       const json = await res.json()
       if (!res.ok) throw new Error(json.error || 'Something went wrong')
       setData(json)
